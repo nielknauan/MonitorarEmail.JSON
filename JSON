@@ -17,7 +17,7 @@
 },
 {
   "type": "Compose", // Compor uma expressão
-  "inputs": "@contains(triggerOutputs()?['body/subject'], 'IM')", // Verificar se o assunto do e-mail contém 'IM'
+  "inputs": "@contains(triggerOutputs()?['body/subject'], "Referencia")", // Verificar se o assunto do e-mail contém "Referencia"
   "runAfter": {} // Executar após a notificação da conexão ser bem-sucedida
 },
 {
