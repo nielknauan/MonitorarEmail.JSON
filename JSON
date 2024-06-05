@@ -1,0 +1,49 @@
+{
+  "type": "OpenApiConnectionNotification", // Notificação de conexão OpenAPI
+  "inputs": {
+    "parameters": {
+      "includeAttachments": false,
+      "importance": "Any",
+      "fetchOnlyWithAttachment": false,
+      "folderPath": "Inbox"
+    },
+    "host": {
+      "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365",
+      "connection": "shared_office365",
+      "operationId": "OnNewEmailV3"
+    }
+  },
+  "splitOn": "@triggerOutputs()?['body/value']" // Dividir os resultados para cada e-mail
+},
+{
+  "type": "Compose", // Compor uma expressão
+  "inputs": "@contains(triggerOutputs()?['body/subject'], 'IM')", // Verificar se o assunto do e-mail contém 'IM'
+  "runAfter": {} // Executar após a notificação da conexão ser bem-sucedida
+},
+{
+  "type": "If", // Condicionamento
+  "inputs": {
+    "condition": {
+      "expression": {
+        "equals": [
+          true,
+          "@outputs('Compose')"
+        ]
+      }
+    },
+    "actions": [ // Se a condição for verdadeira, enviar um e-mail
+      {
+        "type": "SendEmail",
+        "inputs": {
+          "to": "endereco@exemplo.com", // Endereço de e-mail de destino
+          "subject": "@triggerOutputs()?['body/subject']", // Assunto do e-mail original
+          "body": "@triggerOutputs()?['body/body']" // Corpo do e-mail original
+        }
+      }
+    ],
+    "else": [] // Se a condição for falsa, não fazer nada
+  },
+  "runAfter": {
+    "Compose": ["Succeeded"] // Executar após a composição ser bem-sucedida
+  }
+}
