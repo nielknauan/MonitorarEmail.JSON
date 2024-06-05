@@ -47,3 +47,11 @@
     "Compose": ["Succeeded"] // Executar após a composição ser bem-sucedida
   }
 }
+
+--------------------------------------------------------------------------------------------------------------
+
+{
+  "type": "Compose",
+  "inputs": "@contains(triggerOutputs()?['body/subject'], '')"
+}
+
