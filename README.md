@@ -1,12 +1,12 @@
 Monitoramento de Novos E-mails e Encaminhamento
-Este fluxo de trabalho foi criado usando o Microsoft Power Automate para monitorar novos e-mails na caixa de entrada do Office 365. Se um novo e-mail tiver "IM" no assunto, ele será encaminhado para outro endereço de e-mail especificado.
+Este fluxo de trabalho foi criado usando o Microsoft Power Automate para monitorar novos e-mails na caixa de entrada do Office 365. Se um novo e-mail tiver "Referencia" no assunto, ele será encaminhado para outro endereço de e-mail especificado.
 
 Passos do Fluxo de Trabalho:
 Monitorar Novos E-mails: O fluxo é acionado quando um novo e-mail é recebido na pasta de entrada especificada.
 
-Verificar Assunto do E-mail: O fluxo verifica se o assunto do e-mail contém "IM".
+Verificar Assunto do E-mail: O fluxo verifica se o assunto do e-mail contém "Referencia".
 
-Encaminhar E-mail: Se o assunto do e-mail contiver "IM", o e-mail é encaminhado para o endereço de e-mail especificado.
+Encaminhar E-mail: Se o assunto do e-mail contiver "Referencia", o e-mail é encaminhado para o endereço de e-mail especificado.
 
 Como Usar:
 Para usar este fluxo de trabalho, siga estas etapas:
